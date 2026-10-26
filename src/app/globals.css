@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+:root { --ink: #1d2722; --muted: #78827b; --paper: #f7f8f3; --line: #e2e6df; --sage: #cad8c7; --green: #2f5c46; --coral: #e8795d; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: Georgia, "Times New Roman", serif; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.loading-screen { min-height: 100vh; display: grid; place-items: center; color: var(--muted); font: 14px Arial, sans-serif; gap: 12px; align-content: center; }
+.spinner { width: 18px; height: 18px; border: 2px solid var(--line); border-top-color: var(--green); border-radius: 50%; animation: spin .8s linear infinite; }
+.auth-shell { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; background: #e6eee2; }
+.auth-aside { padding: clamp(40px, 8vw, 130px); position: relative; overflow: hidden; background: var(--sage); }
+.auth-aside h1 { font-size: clamp(48px, 6vw, 86px); line-height: .96; letter-spacing: -3px; font-weight: 400; max-width: 520px; margin: 28px 0; }
+.aside-copy { max-width: 300px; font: 16px/1.6 Arial, sans-serif; color: #536157; }
+.aside-mark { position: absolute; right: 12%; bottom: 5%; font-size: 180px; color: #b6c8b3; transform: rotate(12deg); }
+.auth-panel { padding: 46px clamp(32px, 8vw, 130px); display: flex; flex-direction: column; background: var(--paper); }
+.brand { font: 700 18px Arial, sans-serif; letter-spacing: -.5px; display: flex; align-items: center; gap: 9px; }
+.brand-dot { width: 11px; height: 11px; background: var(--coral); border-radius: 50%; display: inline-block; }
+.auth-content { width: min(100%, 390px); margin: auto 0; }
+.eyebrow { text-transform: uppercase; letter-spacing: 1.8px; font: 11px Arial, sans-serif; color: var(--green); font-weight: 700; }
+.auth-content h2, .welcome-row h1 { font-size: clamp(38px, 4vw, 58px); line-height: 1; letter-spacing: -2px; font-weight: 400; margin: 18px 0 14px; }
+.muted { color: var(--muted); font: 14px/1.5 Arial, sans-serif; }
+form { display: grid; gap: 16px; margin-top: 30px; }
+label { display: grid; gap: 8px; color: #59645d; font: 12px Arial, sans-serif; }
+input { width: 100%; padding: 13px 0; border: 0; border-bottom: 1px solid #bec8bd; outline: 0; color: var(--ink); background: transparent; }
+input:focus { border-bottom-color: var(--green); }
+.primary-button, .todo-entry button { border: 0; background: var(--green); color: white; padding: 14px 18px; border-radius: 2px; margin-top: 8px; }
+.primary-button:disabled { opacity: .6; }
+.text-button { border: 0; background: transparent; padding: 4px 0; color: var(--green); font: 12px Arial, sans-serif; }
+.auth-content > .text-button { margin-top: 22px; }
+.error { color: #bd4d39; font: 12px Arial, sans-serif; margin: 0; }
+.footer-note { margin-top: auto; color: var(--muted); font: 11px Arial, sans-serif; }
+.app-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.topbar { height: 86px; padding: 0 clamp(24px, 7vw, 110px); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; background: rgba(247,248,243,.85); }
+.profile { display: flex; align-items: center; gap: 14px; font: 12px Arial, sans-serif; }.profile-name { color: #536157; }.avatar { background: var(--sage); color: var(--green); width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; font-weight: bold; }.profile .text-button { margin-left: 12px; color: var(--muted); }
+.workspace { width: min(100% - 48px, 900px); margin: 0 auto; padding: 80px 0 100px; flex: 1; }.welcome-row { display: flex; justify-content: space-between; align-items: end; }.welcome-row h1 { margin-bottom: 0; }.date-stamp { color: var(--muted); font: 12px Arial, sans-serif; padding-bottom: 5px; }.todo-entry { display: flex; gap: 16px; border-bottom: 1px solid var(--ink); padding: 8px 0 10px; margin-top: 62px; }.todo-entry input { border: 0; font-size: 19px; padding: 12px 0; }.plus { color: var(--coral); font: 28px Arial, sans-serif; }.todo-entry button { margin: 0; padding: 8px 15px; font: 12px Arial, sans-serif; }.list-header { display: flex; justify-content: space-between; align-items: center; margin: 48px 0 18px; }.count { font-size: 18px; }.filters { display: flex; gap: 20px; }.filters button { border: 0; border-bottom: 1px solid transparent; background: transparent; color: var(--muted); text-transform: capitalize; padding: 7px 0; font: 12px Arial, sans-serif; }.filters button.selected { color: var(--ink); border-color: var(--coral); }.todo-list { border-top: 1px solid var(--line); }.todo-item { display: flex; gap: 16px; align-items: center; padding: 20px 4px; border-bottom: 1px solid var(--line); animation: rise .3s ease both; }.todo-title { flex: 1; font-size: 18px; }.is-done .todo-title { text-decoration: line-through; color: var(--muted); }.check { width: 20px; height: 20px; border: 1px solid #aeb9ae; background: transparent; border-radius: 50%; color: var(--green); display: grid; place-items: center; font: 14px Arial, sans-serif; }.is-done .check { border-color: var(--green); background: var(--green); color: white; }.delete-button { border: 0; background: transparent; color: #a7afa8; font: 22px Arial, sans-serif; opacity: 0; }.todo-item:hover .delete-button { opacity: 1; }.empty-state { text-align: center; padding: 78px 0; color: var(--muted); }.empty-state span { color: var(--coral); font-size: 22px; }.empty-state h3 { font-weight: 400; color: var(--ink); font-size: 25px; margin: 14px 0 8px; }.empty-state p { font: 13px Arial, sans-serif; }.app-footer { border-top: 1px solid var(--line); padding: 24px clamp(24px, 7vw, 110px); display: flex; justify-content: space-between; color: var(--muted); font: 11px Arial, sans-serif; letter-spacing: .3px; }
+@keyframes spin { to { transform: rotate(360deg); } } @keyframes rise { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+@media (max-width: 700px) { .auth-shell { display: block; }.auth-aside { min-height: 285px; padding: 40px 28px; }.auth-aside h1 { font-size: 48px; letter-spacing: -2px; margin: 22px 0 0; }.aside-copy, .aside-mark { display: none; }.auth-panel { min-height: calc(100vh - 285px); padding: 30px 28px; }.workspace { width: min(100% - 40px, 900px); padding-top: 52px; }.welcome-row { display: block; }.date-stamp { margin-top: 22px; }.todo-entry { margin-top: 40px; }.todo-entry button { padding-left: 12px; padding-right: 12px; }.list-header { margin-top: 38px; }.profile-name, .profile .text-button { display: none; }.topbar { height: 72px; padding: 0 20px; }.app-footer { padding: 20px; } }
